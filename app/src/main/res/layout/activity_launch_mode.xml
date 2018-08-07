@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.fourcomp.testactivity.launchmode.StandardActivity">
+
+    <com.example.sample.widget.SimpleToolbar
+        android:id="@+id/toolbar"
+        style="@style/NoNavSimpleToolbarStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stb_navigation_icon="@mipmap/ic_launcher"
+        app:stb_rightIv="@mipmap/ic_launcher"
+        app:stb_title_text="TEST"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/bt_stand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="StandardActivity" />
+
+    <Button
+        android:id="@+id/bt_single_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="SingleTopActivity" />
+
+    <Button
+        android:id="@+id/bt_single_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="SingleTaskActivity" />
+
+    <Button
+        android:id="@+id/bt_single_instance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="SingleInstanceActivity" />
+
+</LinearLayout>

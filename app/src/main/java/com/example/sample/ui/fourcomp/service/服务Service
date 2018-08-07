@@ -1,0 +1,64 @@
+
+一.Service简单概述
+   1.后台执行长时间运行操作而没有用户界面的应用组件，后台任务运行完全不依赖UI，即使Activity被销毁 / 程序被关闭，只要进程还在，后台任务就可继续运行；
+   2.运行在主线程（UI线程），一般会将 Service 和 Thread联合着用，即在Service中再创建一个子线程（工作线程）去处理耗时操作逻辑；
+
+二.分类
+   1.Local Service （本地服务）
+    Service对象与Service的启动者在同个进程中进行，两者的通信是进程内的通信。
+   2.Remote Service （远程服务）
+    Service对象与Service的启动者不在同个进程中进行，这时存在一个进程间的通信问题，Android专门为此设计了AIDL来实现进程间的通信。
+
+三.生命周期及启动方式
+    -------------------------------------------------------------------------------------------------------------------
+
+        onCreate()
+            |                       启动：手动调用startService()启动，service运行内部方法：onCreate()、onStartCommand()
+      onStartCommand()                   如果一个service被startService多次启动，onCreate()只会调用一次
+            |                            onStartCommand()调用次数=startService()次数
+         服务运行                    停止：自己停止:stopSelf();或者外部停止:stopService(); service运行内部方法:onDestory()
+            |                            如果一个service被启动且被绑定，如果没有在绑定的前提下stopService()是无法停止服务的。
+       onDestroy()
+
+    -------------------------------------------------------------------------------------------------------------------
+
+        onCreate()
+            |                       启动：手动调用bindService()后，自动调用内部方法：onCreate()、onBind()
+         onBind()
+            |
+         服务运行                    停止：手动调用unbindService()后，自动调用内部方法：onCreate()、onBind()、onDestory()
+            |
+        OnUnbind()                  注意：多个组件可以同时绑定到该服务，但全部取消绑定后，该服务即会被销毁。
+            |
+        onDestroy()
+
+    -------------------------------------------------------------------------------------------------------------------
+
+四.与activity的通信方式
+    服务与组件在同一个进程中:一般使用Binder类、接口、广播
+    在不同的进程 ： 一般使用 广播、Messenger、AIDL
+
+        1.接口 :
+
+        2.广播 :
+
+        3.Binder类:服务与组件在同一个进程中
+
+        4.AIDL :在不同的进程。由于Messenger是以串行的方式处理客户端发来的消息，如果当前有大量消息同时发送到Service(服务端)，Service仍然只能一个个处理，
+                这也就是Messenger跨进程通信的缺点了，因此如果有大量并发请求，Messenger就会显得力不从心了，这时AIDL（Android 接口定义语言）就派上用场了，
+                但实际上Messenger 的跨进程方式其底层实现 就是AIDL，只不过android系统帮我们封装成透明的Messenger罢了 。因此，如果我们想让服务同时处理多个请求，
+                则应该使用 AIDL。 在此情况下，服务必须具备多线程处理能力，并采用线程安全式设计。使用AIDL必须创建一个定义编程接口的 .aidl 文件。
+                Android SDK 工具利用该文件生成一个实现接口并处理 IPC 的抽象类，随后可在服务内对其进行扩展。
+
+        5.Messenger :在不同的进程,需要IBinder传。Messenger可以翻译为信使，通过它可以在不同的进程中共传递Message对象(Handler中的Messager，因此 Handler 是 Messenger 的基础)，
+          在Message中可以存放我们需要传递的数据，然后在进程间传递。如果需要让接口跨不同的进程工作，则可使用 Messenger 为服务创建接口，
+          客户端就可利用 Message 对象向服务发送命令。同时客户端也可定义自有 Messenger，以便服务回传消息。这是执行进程间通信 (IPC) 的最简单方法，
+          因为 Messenger 会在单一线程中创建包含所有请求的队列，也就是说Messenger是以串行的方式处理客户端发来的消息，这样我们就不必对服务进行线程安全设计了。
+
+
+
+
+
+
+
+

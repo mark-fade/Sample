@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/web_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:progressDrawable="@drawable/web_view_progress_drawable" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/no_net_work_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="4dip"
+        android:layout_marginTop="40dip"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="加载失败"
+        android:textColor="#66000000"
+        android:textSize="14sp"
+        android:visibility="gone" />
+</FrameLayout>

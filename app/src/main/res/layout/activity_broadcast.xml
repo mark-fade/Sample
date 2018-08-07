@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.sample.ui.fourcomp.broadcast.BroadcastActivity">
+
+    <com.example.sample.widget.SimpleToolbar
+        android:id="@+id/toolbar"
+        style="@style/NoNavSimpleToolbarStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stb_navigation_icon="@mipmap/ic_launcher"
+        app:stb_rightIv="@mipmap/ic_launcher"
+        app:stb_title_text="TEST"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/bt_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/selector_bt_bg_blue"
+        android:text="注册-监听网络变化"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/bt_flight_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/selector_bt_bg_blue"
+        android:text="注册-关闭或打开飞行模式"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/bt_erji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/selector_bt_bg_blue"
+        android:text="注册-插入耳机"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        android:text="123456789fafasgas"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

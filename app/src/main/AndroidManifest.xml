@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sample">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <permission
+        android:name="sample.permission.READ_CONTENT"
+        android:label="Permission for read content provider"
+        android:protectionLevel="normal" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/app"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.welcome.SplashActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.homepage.HomePageActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.welcome.GuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.mvptest.MvpTestActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.fourcomp.testactivity.launchmode.StandardActivity"
+            android:launchMode="standard"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.fourcomp.testactivity.launchmode.SingleTopActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.fourcomp.testactivity.launchmode.SingleTaskActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.fourcomp.testactivity.launchmode.SingleInstanceActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.designmode.DesignModeActivity" />
+        <activity android:name=".ui.fourcomp.FourCompActivity" />
+        <activity android:name=".ui.fourcomp.broadcast.BroadcastActivity" />
+        <activity android:name=".ui.fourcomp.service.ServiceActivity" />
+        <activity android:name=".ui.fourcomp.contentprovider.ContentProviderActivity" />
+        <activity android:name=".ui.customview.CustomViewActivity" />
+
+        <!-- 广播 -->
+        <receiver android:name=".ui.fourcomp.broadcast.StaticBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.ck.hello" />
+            </intent-filter>
+        </receiver>
+        <!-- 广播 -->
+
+
+        <!-- 服务 -->
+        <service
+            android:name=".ui.fourcomp.service.SimpleService"
+            android:exported="true" />
+        <!-- 服务 -->
+
+
+        <!-- 内容提供者 -->
+        <provider
+            android:name=".ui.fourcomp.contentprovider.MContentProvider"
+            android:authorities="com.example.sample.ui.fourcomp.contentprovider.MContentProvider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:readPermission="sample.permission.READ_CONTENT" />
+
+        <!-- 内容提供者 -->
+
+        <activity android:name=".ui.base.CustomWebViewActivity" />
+        <activity android:name=".ui.gitlab.GitLabStudyActivity"></activity>
+    </application>
+
+</manifest>

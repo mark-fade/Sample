@@ -1,0 +1,13 @@
+ContentProvider（内容提供者）
+定义：指该应用包含一些方法，供外界访问，其他应用程序可以调用该方法，比如如果应用A创建了一个数据库“test.db”，默认是私有的，即其他应用程序不能对其进行操作，
+但是如果应用A使用了ContentProvider，则其他应用程序可以访问该数据库；
+不管该应用程序是否启动，其他应用程序都可以通过这个接口来操作它的内部数据。
+
+作用：内容提供程序可管理音频、视频、图像和个人联系信息等数据。
+
+Android附带了许多有用的ContentProvider，Android附带的ContentProvider包括：
+    Browser：存储如浏览器的信息。
+    CallLog：存储通话记录等信息。
+    Contacts：存储联系人等信息。
+    MediaStore：存储媒体文件的信息。
+    Settings：存储设备的设置和首选项信息。

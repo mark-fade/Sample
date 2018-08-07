@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.sample.ui.fourcomp.contentprovider.ContentProviderActivity">
+
+    <com.example.sample.widget.SimpleToolbar
+        android:id="@+id/toolbar"
+        style="@style/NoNavSimpleToolbarStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stb_navigation_icon="@mipmap/ic_launcher"
+        app:stb_rightIv="@mipmap/ic_launcher"
+        app:stb_title_text="TEST"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rect_line"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="top|left"
+            android:hint="存入库内容"
+            android:minHeight="100dp"
+            android:padding="5dp"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/bt_build"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/selector_bt_bg_blue"
+        android:onClick="onClick"
+        android:text="创建"
+        android:textColor="@color/white" />
+
+</LinearLayout>

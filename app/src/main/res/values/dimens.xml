@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CirclePageIndicator的默认dimen值-->
+    <dimen name="default_circle_indicator_radius">4dip</dimen>
+    <dimen name="default_circle_indicator_max_radius">4dip</dimen>
+    <dimen name="default_circle_indicator_spacing">4dip</dimen>
+    <dimen name="default_circle_indicator_spacing_lager">6dip</dimen>
+    <dimen name="default_circle_indicator_stroke_width">0px</dimen>
+
+</resources>

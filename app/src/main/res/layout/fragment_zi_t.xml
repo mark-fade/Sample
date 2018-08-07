@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sample.ui.customview.ZiTFragment">
+
+    <FrameLayout
+        android:padding="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.example.sample.ui.customview.view.ZiTBgView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.example.sample.ui.customview.view.TuyaView
+            android:id="@+id/zi_t_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="#F4F4F4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <Button
+            android:id="@+id/bt_clear"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_bt_bg_blue"
+            android:onClick=""
+            android:text="清空"
+            android:textColor="@color/white" />
+
+        <Button
+            android:layout_marginLeft="15dp"
+            android:id="@+id/bt_revoke"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_bt_bg_blue"
+            android:onClick=""
+            android:text="撤销"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

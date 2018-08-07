@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '25.0.0'
+
+    dataBinding {
+        enabled true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso_version", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$support_lib_version"
+    testCompile 'junit:junit:4.12'
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+
+    // rx
+    compile "io.reactivex:rxjava:$rxjava_version"
+    compile "io.reactivex:rxandroid:$rxandroid_version"
+
+    // dagger
+    compile "com.google.dagger:dagger:$dagger_version"
+    annotationProcessor  "com.google.dagger:dagger-compiler:$dagger_version"
+    provided "javax.annotation:jsr250-api:$javax_annotation_version"
+
+
+    // stetho
+    compile "com.facebook.stetho:stetho:$stetho_version"
+    compile "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+
+
+}

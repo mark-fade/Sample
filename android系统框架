@@ -1,0 +1,45 @@
+
+-----------------------------------------------------
+               应用程序（Application）
+                        ↑
+        应用程序框架（Application Framework）
+                        ↑
+    各种库（Libraries）和Android 运行环境（RunTime）、虚拟机
+                        ↑
+                   操作系统层（OS）
+-----------------------------------------------------
+
+应用程序框架（Framework层）：应用程序框架层是我们从事Android开发的基础，很多核心应用程序也是通过这一层来实现其核心功能的，该层简化了组件的重用
+，开发人员可以直接使用其提供的组件来进行快速的应用程序开发，也可以通过继承而实现个性化的拓展。
+       a）Activity Manager（活动管理器）
+       管理各个应用程序生命周期以及通常的导航回退功能
+
+       b）Window Manager（窗口管理器）
+       管理所有的窗口程序
+
+       c）Content Provider（内容提供器）
+       使得不同应用程序之间存取或者分享数据
+
+       d）View System（视图系统）
+       构建应用程序的基本组件
+
+       e）NotificationManager(通告管理器)
+       使得应用程序可以在状态栏中显示自定义的提示信息
+
+       f）Package Manager（包管理器）
+       Android系统内的程序管理
+
+       g）TelephonyManager(电话管理器)
+       管理所有的移动设备功能
+
+       h）Resource Manager（资源管理器）
+       提供应用程序使用的各种非代码资源，如本地化字符串、图片、布局文件、颜色文件等
+
+       i）LocationManager(位置管理器)
+       提供位置服务
+
+       j）XMPP Service（XMPP服务）
+       提供GoogleTalk服务
+
+
+

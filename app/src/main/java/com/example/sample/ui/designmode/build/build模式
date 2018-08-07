@@ -1,0 +1,11 @@
+Build模式：
+将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示，可读性大大增强。
+创建Person类。
+Person.Builder builder=new Person.Builder();
+Person person=builder
+		.name("张三")
+		.age(18)
+		.height(178.5)
+		.weight(67.4)
+		.build();
+

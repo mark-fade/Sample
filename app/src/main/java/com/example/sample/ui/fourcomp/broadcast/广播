@@ -1,0 +1,92 @@
+
+应用场景:
+    1.Android不同组件间的通信（含 ：应用内 / 不同应用之间）
+    2.2多线程通信
+    3.与 Android 系统在特定情况下的通信
+    如：电话呼入时、网络可用时
+
+广播的类型主要分为5类：
+
+    普通广播（Normal Broadcast）: 开发者自身定义 intent的广播（最常用）
+    系统广播（System Broadcast）
+    有序广播（Ordered Broadcast）
+    粘性广播（Sticky Broadcast）
+    App应用内广播（Local Broadcast）
+
+作者：Carson_Ho
+链接：https://www.jianshu.com/p/ca3d87a4cdf3
+來源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+
+ 广播接收器注册:
+                             特点                                         应用场景
+    静态注册:   应用关闭后，受到消息，程序依旧会被调用 (耗电、占内存)        需要时刻监听广播
+    动态注册：   组建结束 = 广播结束                                     特定时刻接收广播
+
+    1.静态注册,在AndroidManifest.xml里通过<receive>标签声明
+      事例：
+        <receiver //此广播接收者类是mBroadcastReceiver
+            android:name=".mBroadcastReceiver" > //用于接收网络状态改变时发出的广播
+            <intent-filter>
+            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver  android:enabled=["true" | "false"]
+                //此broadcastReceiver能否接收其他App的发出的广播
+                //默认值是由receiver中有无intent-filter决定的：如果有intent-filter，默认值为true，否则为false
+
+                android:exported=["true" | "false"]
+                android:icon="drawable resource"
+                android:label="string resource"
+                //继承BroadcastReceiver子类的类名
+                android:name=".mBroadcastReceiver"
+                //具有相应权限的广播发送者发送的广播才能被此BroadcastReceiver所接收；
+                android:permission="string"
+                //BroadcastReceiver运行所处的进程
+                //默认为app的进程，可以指定独立的进程
+                //注：Android四大基本组件都可以通过此属性指定自己的独立进程
+                android:process="string" >
+                //用于指定此广播接收器将接收的广播类型
+                //本示例中给出的是用于接收网络状态改变时发出的广播
+                    <intent-filter>
+                    <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                    </intent-filter>
+            </receiver>
+
+
+        作者：Carson_Ho
+        链接：https://www.jianshu.com/p/ca3d87a4cdf3
+        來源：简书
+        简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+
+     2.动态注册：动态广播最好在Activity 的 onResume()注册、onPause()注销。
+        原因：对于动态广播，有注册就必然得有注销，否则会导致内存泄露，重复注册、重复注销也不允许
+
+        // 选择在Activity生命周期方法中的onResume()中注册
+        @Override protected void onResume(){
+            super.onResume();
+            // 1. 实例化BroadcastReceiver子类 & IntentFilter
+            mBroadcastReceiver mBroadcastReceiver = new mBroadcastReceiver();
+            IntentFilter intentFilter = new IntentFilter();
+            // 2. 设置接收广播的类型
+            intentFilter.addAction(android.net.conn.CONNECTIVITY_CHANGE);
+            // 3. 动态注册：调用Context的registerReceiver（）方法
+            registerReceiver(mBroadcastReceiver, intentFilter);
+        }
+        // 注册广播后，要在相应位置记得销毁广播
+        // 即在onPause() 中unregisterReceiver(mBroadcastReceiver)
+        // 当此Activity实例化时，会动态将MyBroadcastReceiver注册到系统中
+        // 当此Activity销毁时，动态注册的MyBroadcastReceiver将不再接收到相应的广播。
+        @Override protected void onPause() {
+            super.onPause();
+            //销毁在onResume()方法中的广播
+            unregisterReceiver(mBroadcastReceiver);
+            }
+        }
+
+permission问题:
+
+
+
+

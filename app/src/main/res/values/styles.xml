@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- 网络加载弹框 -->
+    <style name="LoadDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <declare-styleable name="SimpleToolbar">
+        <attr name="stb_navigation_icon" format="reference" />
+        <attr name="stb_title_text" format="string" />
+        <attr name="stb_title_text_color" format="color" />
+        <attr name="stb_title_text_size" format="dimension" />
+        <attr name="stb_is_righttv_visible" format="boolean" />
+        <attr name="stb_righttv_color" format="color" />
+        <attr name="stb_righttv_text" format="string" />
+        <attr name="stb_righttv_text_size" format="dimension" />
+        <attr name="stb_rightIv" format="reference" />
+        <attr name="stb_right_sec_iv" format="reference" />
+        <attr name="stb_left_tv" format="string" />
+    </declare-styleable>
+
+    <style name="NoNavSimpleToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">49dip</item>
+        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="stb_title_text_color">@color/white</item>
+        <item name="stb_title_text_size">19sp</item>
+    </style>
+
+</resources>
