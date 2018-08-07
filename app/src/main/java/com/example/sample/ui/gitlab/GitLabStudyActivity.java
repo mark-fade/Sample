@@ -54,7 +54,7 @@ public class GitLabStudyActivity<P extends BasePresenter, M extends BaseModel> e
                 break;
             case R.id.bt_h_s:
                 Intent it3 = new Intent(GitLabStudyActivity.this, CustomWebViewActivity.class);
-                it3.putExtra(Constants.CustomWebViewContants.URL, "");
+                it3.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/qq_30304193/article/details/81382143");
                 it3.putExtra(Constants.CustomWebViewContants.TITLE, "gitHub + AS");
                 startActivity(it3);
                 break;
