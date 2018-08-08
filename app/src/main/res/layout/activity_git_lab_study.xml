@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.gitlab.GitLabStudyActivity">
 
     <com.example.sample.widget.SimpleToolbar
@@ -21,44 +21,52 @@
         tools:layout_constraintRight_creator="1" />
 
     <Button
-        android:onClick="onClick"
         android:id="@+id/bt_xj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:onClick="onClick"
         android:text="git、gitHub、gitLab小结" />
 
 
     <Button
-        android:onClick="onClick"
         android:id="@+id/bt_git_xj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:onClick="onClick"
         android:text="git详解" />
 
     <Button
+        android:id="@+id/bt_git_cy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:onClick="onClick"
+        android:text="git常用命令" />
+
+    <Button
         android:id="@+id/bt_git_ssh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:onClick="onClick"
         android:text="使用git生成ssh公钥" />
 
     <Button
-        android:onClick="onClick"
         android:id="@+id/bt_l_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:onClick="onClick"
         android:text="gitLab + Android studio搭建代码库" />
 
     <Button
-        android:onClick="onClick"
         android:id="@+id/bt_h_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:onClick="onClick"
         android:text="gitHub + Android studio搭建代码库" />
 
 

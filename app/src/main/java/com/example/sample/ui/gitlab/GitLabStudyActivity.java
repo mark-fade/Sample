@@ -37,8 +37,14 @@ public class GitLabStudyActivity<P extends BasePresenter, M extends BaseModel> e
             case R.id.bt_git_xj:
                 Intent it1 = new Intent(GitLabStudyActivity.this, CustomWebViewActivity.class);
                 it1.putExtra(Constants.CustomWebViewContants.URL, "http://www.runoob.com/git/git-tutorial.html");
-                it1.putExtra(Constants.CustomWebViewContants.TITLE, "详解");
+                it1.putExtra(Constants.CustomWebViewContants.TITLE, "git详解");
                 startActivity(it1);
+                break;
+            case R.id.bt_git_cy:
+                Intent it11 = new Intent(GitLabStudyActivity.this, CustomWebViewActivity.class);
+                it11.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/qq_30304193/article/details/81486265");
+                it11.putExtra(Constants.CustomWebViewContants.TITLE, "git常用命令");
+                startActivity(it11);
                 break;
             case R.id.bt_git_ssh:
                 Intent it2 = new Intent(GitLabStudyActivity.this, CustomWebViewActivity.class);
