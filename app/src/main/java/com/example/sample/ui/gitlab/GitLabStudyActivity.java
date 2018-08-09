@@ -69,6 +69,5 @@ public class GitLabStudyActivity<P extends BasePresenter, M extends BaseModel> e
 
     @Override
     public void onError(Throwable e) {
-
     }
 }
