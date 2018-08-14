@@ -60,7 +60,7 @@ public class App extends Application {
     }
 
     private void initDebug(){
-/**  开启steth o调试，chrome调试android应用，网络，prefrence等*/
+        /**  开启steth o调试，chrome调试android应用，网络，prefrence等*/
 
 
         if (BuildConfig.DEBUG) {
