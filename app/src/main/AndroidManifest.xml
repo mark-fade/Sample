@@ -68,13 +68,11 @@
         </receiver>
         <!-- 广播 -->
 
-
         <!-- 服务 -->
         <service
             android:name=".ui.fourcomp.service.SimpleService"
             android:exported="true" />
         <!-- 服务 -->
-
 
         <!-- 内容提供者 -->
         <provider
@@ -83,7 +81,6 @@
             android:exported="true"
             android:grantUriPermissions="true"
             android:readPermission="sample.permission.READ_CONTENT" />
-
         <!-- 内容提供者 -->
 
         <activity android:name=".ui.base.CustomWebViewActivity" />
