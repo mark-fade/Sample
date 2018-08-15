@@ -62,7 +62,6 @@ public class App extends Application {
     private void initDebug(){
         /**  开启steth o调试，chrome调试android应用，网络，prefrence等*/
 
-
         if (BuildConfig.DEBUG) {
             /*Stetho.initialize(Stetho.newInitializerBuilder(this)
                     .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
@@ -109,7 +108,6 @@ public class App extends Application {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent restartIntent = PendingIntent.getActivity(mApp, 0, intent, PendingIntent.FLAG_ONE_SHOT);
             mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, restartIntent); // 1秒钟后重启应用
-
             ActivityManager.getInstance().popAllActivity();
             Process.killProcess(Process.myPid());
             System.exit(0);
