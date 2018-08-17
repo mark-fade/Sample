@@ -36,7 +36,6 @@
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:background="@drawable/selector_bt_bg_blue"
-            android:onClick=""
             android:text="清空"
             android:textColor="@color/white" />
 
@@ -46,7 +45,6 @@
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:background="@drawable/selector_bt_bg_blue"
-            android:onClick=""
             android:text="撤销"
             android:textColor="@color/white" />
 

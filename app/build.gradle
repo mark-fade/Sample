@@ -17,25 +17,26 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    //编译类型，针对每个类型可以有不同的编译配置，默认的有debug、release 的类型。
     buildTypes {
         debug {
-            minifyEnabled false
-            shrinkResources false
             // 开发环境
             buildConfigField 'String', 'API_HOST_URL', '"http://www.sojson.com/"'
         }
-        mtest {
-            minifyEnabled false
-            shrinkResources false
+        tmode {
             //测试环境
             buildConfigField 'String', 'API_HOST_URL', '"http://www.sojson.com/"'
         }
         release {
-            minifyEnabled true
-            shrinkResources true
             //生产环境
-            buildConfigField 'String', 'API_HOST_URL', '"http://www.sojson.com/"'
+            //开启自己定义的混淆规则文件
+            minifyEnabled true
+            //开启删除无用资源
+            shrinkResources true
+            //配置代码混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'String', 'API_HOST_URL', '"http://www.sojson.com/"'
 
             // 自定义输出配置
             applicationVariants.all { variant ->
@@ -72,9 +73,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     compile "com.android.support:recyclerview-v7:$support_lib_version"
-
     // dagger 注意这里的依赖即使是在datamodule里面添加了相应的库，也得在这里加上，具体原因不清楚。
     // 编译时期生成代码的类库在运行期并不需要，那么将其分为两个库，（运行类库dagger）和（编译器生成代码类库（dagger-compiler）），那么在打包时，就不需要将dagger-compiler打入其中（用不到），减小APK 的大小。
     compile "com.google.dagger:dagger:$dagger_version"
@@ -90,15 +89,13 @@ dependencies {
     //butterknife
     compile "com.jakewharton:butterknife:$butterknife_version"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife_version"
-
     //greendao数据库相关的库
-
     //监控内存泄漏
     compile project(':data')
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:support-v4:26.+'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    tmodeCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
