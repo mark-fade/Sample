@@ -38,21 +38,46 @@ android {
 
             buildConfigField 'String', 'API_HOST_URL', '"http://www.sojson.com/"'
 
-            // 自定义输出配置
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        def date = Calendar.getInstance();
-                        def timeStr = "_" + date.get(Calendar.YEAR) + (((date.get(Calendar.MONTH) + 1) >= 10 ? date.get(Calendar.MONTH) + 1 : "0" + (date.get(Calendar.MONTH) + 1))) + (date.get(Calendar.DAY_OF_MONTH) >= 10 ? date.get(Calendar.DAY_OF_MONTH) : "0" + date.get(Calendar.DAY_OF_MONTH)) + "_" + (date.get(Calendar.HOUR_OF_DAY) >= 10 ? date.get(Calendar.HOUR_OF_DAY) : "0" + date.get(Calendar.HOUR_OF_DAY)) + (date.get(Calendar.MINUTE) >= 10 ? date.get(Calendar.MINUTE) : "0" + date.get(Calendar.MINUTE)) + ".apk";
-                        def fileName = "Android_${defaultConfig.versionName}_${defaultConfig.versionCode}" + timeStr;
-                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
-                }
-            }
+            // 自定义输出配置，格式：版本名称 + 版本号 + 渠道名称(如果不用渠道打包，可以去掉) + 时间
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        def date = Calendar.getInstance();
+//                        def timeStr = "_" + date.get(Calendar.YEAR) + (((date.get(Calendar.MONTH) + 1) >= 10 ? date.get(Calendar.MONTH) + 1 : "0" + (date.get(Calendar.MONTH) + 1))) + (date.get(Calendar.DAY_OF_MONTH) >= 10 ? date.get(Calendar.DAY_OF_MONTH) : "0" + date.get(Calendar.DAY_OF_MONTH)) + "_" + (date.get(Calendar.HOUR_OF_DAY) >= 10 ? date.get(Calendar.HOUR_OF_DAY) : "0" + date.get(Calendar.HOUR_OF_DAY)) + (date.get(Calendar.MINUTE) >= 10 ? date.get(Calendar.MINUTE) : "0" + date.get(Calendar.MINUTE)) + ".apk";
+//                        def fileName = "Android_${defaultConfig.versionName}_${defaultConfig.versionCode}_${variant.productFlavors[0].name}" + timeStr;
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
         }
+    }
 
-
+    //多渠道打包，渠道配置,
+    //Android Studio3.0 要求每个flavor必须有dimension
+    productFlavors {
+        //官方包
+        official {
+            dimension "official"
+            //渠道标识
+            manifestPlaceholders = [QD_CHANNEL_ID_VALUE: "1000"]
+            //渠道包名不一致时可以单独设置每个包的包名
+            //applicationId = "xx.xx.xx"
+        }
+        xiaomi {
+            dimension "xiaomi"
+            //渠道标识
+            manifestPlaceholders = [QD_CHANNEL_ID_VALUE: "1001"]
+            //渠道包名不一致时可以单独设置每个包的包名
+            //applicationId = "xx.xx.xx"
+        }
+        huawei {
+            dimension "huawei"
+            //渠道标识
+            manifestPlaceholders = [QD_CHANNEL_ID_VALUE: "1002"]
+            //渠道包名不一致时可以单独设置每个包的包名
+            //applicationId = "xx.xx.xx"
+        }
     }
 }
 
@@ -70,6 +95,7 @@ configurations.all {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:design:26.1.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

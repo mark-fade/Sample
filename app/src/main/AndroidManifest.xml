@@ -18,6 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 多渠道打包，定义QD_CHANNEL_ID变量,代码中可以获取到变量值 -->
+        <meta-data
+            android:name="QD_CHANNEL_ID"
+            android:value="${QD_CHANNEL_ID_VALUE}" />
+
         <activity
             android:name=".ui.welcome.SplashActivity"
             android:launchMode="standard"
@@ -68,11 +74,13 @@
         </receiver>
         <!-- 广播 -->
 
+
         <!-- 服务 -->
         <service
             android:name=".ui.fourcomp.service.SimpleService"
             android:exported="true" />
         <!-- 服务 -->
+
 
         <!-- 内容提供者 -->
         <provider
@@ -84,7 +92,11 @@
         <!-- 内容提供者 -->
 
         <activity android:name=".ui.base.CustomWebViewActivity" />
-        <activity android:name=".ui.gitlab.GitLabStudyActivity"></activity>
+        <activity android:name=".ui.gitlab.GitLabStudyActivity" />
+        <activity
+            android:name=".ui.generateapk.GenerateAPKActivity"
+            android:label="@string/title_activity_generate_apk"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
