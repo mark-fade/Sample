@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.example.sample.widget.SimpleToolbar
+        android:id="@+id/toolbar"
+        style="@style/NoNavSimpleToolbarStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stb_navigation_icon="@mipmap/ic_launcher"
+        app:stb_rightIv="@mipmap/ic_launcher"
+        app:stb_title_text="TEST"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:id="@+id/tv_test"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/shape_rect_line"
+        android:text="正常显示"
+        android:layout_width="200dp"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/bt_b_apk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="onClick"
+        android:text="apk反编译 " />
+
+</LinearLayout>

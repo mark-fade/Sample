@@ -96,6 +96,10 @@
         <activity
             android:name=".ui.generateapk.GenerateAPKActivity"
             android:label="@string/title_activity_generate_apk"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.backanalysis.BackAnalysisActivity"
+            android:label="@string/title_activity_back_analysis"
             android:theme="@style/AppTheme"></activity>
     </application>
 

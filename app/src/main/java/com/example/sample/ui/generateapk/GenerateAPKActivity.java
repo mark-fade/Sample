@@ -52,10 +52,16 @@ public class GenerateAPKActivity<P extends BasePresenter, M extends BaseModel> e
                 it0.putExtra(Constants.CustomWebViewContants.TITLE, "代码混淆");
                 startActivity(it0);
                 break;
+            case R.id.bt_jks:
+                Intent it00 = new Intent(GenerateAPKActivity.this, CustomWebViewActivity.class);
+                it00.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/qq_30304193/article/details/81781914");
+                it00.putExtra(Constants.CustomWebViewContants.TITLE, "keystore");
+                startActivity(it00);
+                break;
             case R.id.bt_g_apk:
                 Intent it1 = new Intent(GenerateAPKActivity.this, CustomWebViewActivity.class);
                 it1.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/qq_30304193/article/details/81778579");
-                it1.putExtra(Constants.CustomWebViewContants.TITLE, "App打包");
+                it1.putExtra(Constants.CustomWebViewContants.TITLE, "打包+360加固 ");
                 startActivity(it1);
                 break;
             case R.id.bt_g_apk_more:
@@ -63,6 +69,12 @@ public class GenerateAPKActivity<P extends BasePresenter, M extends BaseModel> e
                 it2.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/qq_30304193/article/details/81781858");
                 it2.putExtra(Constants.CustomWebViewContants.TITLE, "Android多渠道打包");
                 startActivity(it2);
+                break;
+            case R.id.bt_apk_lc:
+                Intent it3 = new Intent(GenerateAPKActivity.this, CustomWebViewActivity.class);
+                it3.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/qq_30304193/article/details/81945488");
+                it3.putExtra(Constants.CustomWebViewContants.TITLE, "Apk打包流程");
+                startActivity(it3);
                 break;
         }
     }

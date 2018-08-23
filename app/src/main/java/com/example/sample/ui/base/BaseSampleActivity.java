@@ -51,7 +51,7 @@ public abstract class BaseSampleActivity<P extends BasePresenter, M extends Base
         });
         toolbar.setNavigationIcon(R.mipmap.backicon);
         toolbar.setRightIconVisibility(View.GONE);
-        toolbar.setRightTvVisibility(View.VISIBLE);
+        toolbar.setRightTvVisibility(View.GONE);
         toolbar.setRightText("说明");
         toolbar.setOnRightTvClickListener(new View.OnClickListener() {
             @Override

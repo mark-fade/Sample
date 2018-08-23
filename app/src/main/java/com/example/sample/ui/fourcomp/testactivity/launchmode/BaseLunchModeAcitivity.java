@@ -39,6 +39,7 @@ public abstract class BaseLunchModeAcitivity<P extends BasePresenter, M extends 
         super.onCreate(savedInstanceState);
         setUrl("https://blog.csdn.net/qq_30304193/article/details/81328220");
         setWebViewTitle("Activity启动模式");
+        toolbar.setRightTvVisibility(View.VISIBLE);
         bt_stand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

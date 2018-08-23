@@ -37,12 +37,20 @@
         android:text="代码混淆" />
 
     <Button
+        android:id="@+id/bt_jks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="onClick"
+        android:text="keystore简介、生成、查看" />
+
+    <Button
         android:id="@+id/bt_g_apk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:onClick="onClick"
-        android:text="App打包" />
+        android:text="打包+360加固 " />
 
     <Button
         android:id="@+id/bt_g_apk_more"
@@ -51,5 +59,13 @@
         android:layout_marginTop="5dp"
         android:onClick="onClick"
         android:text="Android多渠道打包" />
+
+    <Button
+        android:id="@+id/bt_apk_lc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="onClick"
+        android:text="Apk打包流程" />
 
 </LinearLayout>
