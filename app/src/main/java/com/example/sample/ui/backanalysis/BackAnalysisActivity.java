@@ -1,6 +1,7 @@
 package com.example.sample.ui.backanalysis;
 
 import android.content.Intent;
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,8 +17,16 @@ import com.example.sample.ui.base.BaseSampleActivity;
 import com.example.sample.ui.base.CustomWebViewActivity;
 import com.example.sample.ui.generateapk.GenerateAPKActivity;
 import com.example.sample.utils.Constants;
+import com.jakewharton.rxbinding.view.RxView;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func1;
 
 public class BackAnalysisActivity<P extends BasePresenter, M extends BaseModel> extends BaseSampleActivity<P, M> implements View.OnClickListener {
 
@@ -33,6 +42,29 @@ public class BackAnalysisActivity<P extends BasePresenter, M extends BaseModel> 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv_test.setText("正常显示 ： 12346");
+        Observable<Void> observable = RxView.clicks(tv_test).share();
+        observable.observeOn(AndroidSchedulers.mainThread())
+                .buffer(observable.debounce(300, TimeUnit.MILLISECONDS))
+                .map(new Func1<List<Void>, Integer>() {
+                    @Override
+                    public Integer call(List<Void> voids) {
+                        return voids.size();
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        if (integer == 5) {
+                            Intent intent = new Intent(BackAnalysisActivity.this, CustomWebViewActivity.class);
+                            intent.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/huangqili1314/article/details/72792682");
+                            intent.putExtra(Constants.CustomWebViewContants.TITLE, "面试");
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+
     }
 
     @Override

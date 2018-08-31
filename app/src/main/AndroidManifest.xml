@@ -100,7 +100,9 @@
         <activity
             android:name=".ui.backanalysis.BackAnalysisActivity"
             android:label="@string/title_activity_back_analysis"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.net.NetWorkActivity" />
+        <activity android:name=".ui.interview.InterviewActivity"></activity>
     </application>
 
 </manifest>

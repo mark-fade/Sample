@@ -62,7 +62,6 @@ public class StudyAdapter extends RecyclerView.Adapter {
         return this.mData.size();
     }
 
-
     class SViewHolder extends RecyclerView.ViewHolder {
 
         TextView text;

@@ -10,6 +10,7 @@ import com.example.sample.ui.generateapk.GenerateAPKActivity;
 import com.example.sample.ui.gitlab.GitLabStudyActivity;
 import com.example.sample.ui.homepage.adapter.StudyAdapter;
 import com.example.sample.ui.mvptest.MvpTestActivity;
+import com.example.sample.ui.net.NetWorkActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +22,13 @@ import java.util.List;
 
 public class HomePageModel implements BaseModel {
 
-    String[] listContent = {"MVP"
+    String[] listContent = {"MVP、MVC、MVVM"
             , "四大组件"
             , "自定义View"
             , "代码库搭建(svn、git使用，gitLab使用）"
             , "打包相关"
             , "Android逆向"
-            , "通知"
-            , "蓝牙"
-            , "进程间通信"
+            , "网络相关"
     };
 
     public List<StudyAdapter.StudyBean> getStudyList() {
@@ -53,6 +52,8 @@ public class HomePageModel implements BaseModel {
             return GenerateAPKActivity.class;
         } else if (name.equals(listContent[5])) {
             return BackAnalysisActivity.class;
+        }else if (name.equals(listContent[6])) {
+            return NetWorkActivity.class;
         }
         return null;
     }
