@@ -4,6 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".ui.interview.InterviewActivity">
+
+    <com.example.sample.widget.SimpleToolbar
+        android:id="@+id/toolbar"
+        style="@style/NoNavSimpleToolbarStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stb_navigation_icon="@mipmap/ic_launcher"
+        app:stb_rightIv="@mipmap/ic_launcher"
+        app:stb_title_text="TEST"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/bt_hz_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="onClick"
+        android:text="a" />
+
+    <Button
+        android:id="@+id/bt_hz_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="onClick"
+        android:text="b" />
 
 </LinearLayout>

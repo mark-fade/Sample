@@ -16,6 +16,7 @@ import com.example.sample.base.BasePresenter;
 import com.example.sample.ui.base.BaseSampleActivity;
 import com.example.sample.ui.base.CustomWebViewActivity;
 import com.example.sample.ui.generateapk.GenerateAPKActivity;
+import com.example.sample.ui.interview.InterviewActivity;
 import com.example.sample.utils.Constants;
 import com.jakewharton.rxbinding.view.RxView;
 
@@ -55,16 +56,11 @@ public class BackAnalysisActivity<P extends BasePresenter, M extends BaseModel> 
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        if (integer == 5) {
-                            Intent intent = new Intent(BackAnalysisActivity.this, CustomWebViewActivity.class);
-                            intent.putExtra(Constants.CustomWebViewContants.URL, "https://blog.csdn.net/huangqili1314/article/details/72792682");
-                            intent.putExtra(Constants.CustomWebViewContants.TITLE, "面试");
-                            startActivity(intent);
+                        if (integer >= 5) {
+                            startActivity(new Intent(BackAnalysisActivity.this, InterviewActivity.class));
                         }
                     }
                 });
-
-
     }
 
     @Override
