@@ -40,9 +40,14 @@ public class InterviewActivity<P extends BasePresenter, M extends BaseModel> ext
                 b.putExtra(Constants.CustomWebViewContants.TITLE, "b");
                 startActivity(b);
                 break;
+            case R.id.bt_sql:
+                Intent s = new Intent(InterviewActivity.this, CustomWebViewActivity.class);
+                s.putExtra(Constants.CustomWebViewContants.URL, "https://www.cnblogs.com/daxueshan/p/6687521.html");
+                s.putExtra(Constants.CustomWebViewContants.TITLE, "SQL常用增删改查语句");
+                startActivity(s);
+                break;
         }
     }
-
 
     @Override
     public void onError(Throwable e) {

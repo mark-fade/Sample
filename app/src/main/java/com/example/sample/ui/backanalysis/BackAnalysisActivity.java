@@ -57,7 +57,8 @@ public class BackAnalysisActivity<P extends BasePresenter, M extends BaseModel> 
                     @Override
                     public void call(Integer integer) {
                         if (integer >= 5) {
-                            startActivity(new Intent(BackAnalysisActivity.this, InterviewActivity.class));
+                            startActivity(new Intent(BackAnalysisActivity.this, InterviewActivity.class)
+                                    .putExtra(Constants.CustomWebViewContants.TITLE, "Android面试题收集"));
                         }
                     }
                 });
